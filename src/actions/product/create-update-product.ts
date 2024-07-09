@@ -12,7 +12,7 @@ cloudinary.config({
   api_key: '424487972765664',
   api_secret: 'xCNHGDkw0L0M6UugXzsJ8maPrIM',
   secure: true,
-});
+}); // Configuración de Cloudinary.
 
 const productSchema = z.object({
   id: z.string().uuid().optional().nullable(),
@@ -31,7 +31,7 @@ const productSchema = z.object({
   sizes: z.coerce.string().transform((val) => val.split(",")),
   tags: z.string(),
   gender: z.nativeEnum(Gender),
-});
+}); // Define el esquema de validación para un producto usando zod.
 
 export const createUpdateProduct = async( formData: FormData ) => {
 
@@ -40,6 +40,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
 
   if ( !productParsed.success) {
     //console.log( productParsed.error );
+    // Si la validación falla, devuelve un objeto con ok: false.
     return { ok: false }
   }
 
@@ -57,6 +58,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
   
       if ( id ) {
         // Actualizar
+        // Si hay un id, actualiza el producto existente.
         product = await prisma.product.update({
           where: { id },
           data: {
@@ -72,6 +74,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
   
       } else {
         // Crear
+        // Si no hay id, crea un nuevo producto.
         product = await prisma.product.create({
           data: {
             ...rest,
@@ -88,6 +91,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
       /* Nota si no se nota crear o actualizar el producto no llegara a este codigo */
       // Proceso de carga y guardado de imagenes
       // Recorrer las imagenes y guardarlas
+      // Proceso de carga y guardado de imágenes.
       if ( formData.getAll('images') ) {
         // [https://url.jpg, https://url.jpg]
         const images = await uploadImages(formData.getAll('images') as File[]);
@@ -104,8 +108,6 @@ export const createUpdateProduct = async( formData: FormData ) => {
 
       }
   
-  
-  
       
       return {
         product
@@ -115,6 +117,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
 
     // Todo: RevalidatePaths
     // actualizar los paths
+    // Revalida las rutas en Next.js para reflejar los cambios.
     revalidatePath('/admin/products');
     revalidatePath(`/admin/product/${ product.slug }`);
     revalidatePath(`/products/${ product.slug }`);
@@ -127,7 +130,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
 
     
   } catch (error) {
-    
+    // En caso de error, devuelve un objeto con ok: false y un mensaje de error.
     return {
       ok: false,
       message: 'Revisar los logs, no se pudo actualizar/crear'

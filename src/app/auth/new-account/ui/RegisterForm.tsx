@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 import { login, registerUser } from "@/actions";
 import { useState } from "react";
@@ -93,7 +93,6 @@ export const RegisterForm = () => {
           Ingresar
         </Link>
       </form>
-      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

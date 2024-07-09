@@ -6,7 +6,7 @@ import { currencyFormat, sleep } from "@/utils";
 import clsx from "clsx";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import {Toaster, toast} from "react-hot-toast";
+import { toast} from "react-hot-toast";
 
 export const PlaceOrder = () => {
   const router = useRouter();
@@ -130,7 +130,6 @@ export const PlaceOrder = () => {
         </button>
       </div>
 
-      <Toaster position="top-center"/>
     </div>
   );
 };

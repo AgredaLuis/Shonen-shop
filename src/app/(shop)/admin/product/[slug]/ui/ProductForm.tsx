@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { createUpdateProduct, deleteProductImage } from "@/actions";
 import { useRouter } from "next/navigation";
 import { ProductImage } from "@/components";
-import {Toaster, toast} from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 interface Props {
   product: Partial<Product> & {
@@ -253,7 +253,6 @@ export const ProductForm = ({ product, categories }: Props) => {
           </div>
         </div>
       </div>
-      <Toaster position="top-center" />
     </form>
   );
 };

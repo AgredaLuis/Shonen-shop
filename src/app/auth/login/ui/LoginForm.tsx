@@ -7,7 +7,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/actions";
 import { IoInformationOutline } from "react-icons/io5";
 import clsx from 'clsx';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 // import { useRouter } from 'next/navigation';
 
 export const LoginForm = () => {
@@ -78,7 +78,6 @@ export const LoginForm = () => {
         Crear una nueva cuenta
       </Link>
     </form>
-    <Toaster position='top-center' reverseOrder={false} />
     </>
   );
 };

@@ -1,8 +1,5 @@
 
 import { PaypalButton, ProductImage, Title } from "@/components";
-import Image from "next/image";
-import clsx from "clsx";
-import { IoCardOutline } from "react-icons/io5";
 import { getOrderById } from "@/actions";
 import { redirect } from "next/navigation";
 import { currencyFormat } from "@/utils";
@@ -86,6 +83,11 @@ export default async function OrdersByIdPage({ params }: Props) {
             <h2 className="text-2xl mb-2">Resumen de orden</h2>
 
             <div className="grid grid-cols-2">
+              <span className="font-semibold">Orden N#</span>
+              <span className="text-right font-semibold">{order?.id.substring(0, 8)}</span>
+
+
+
               <span>No. Productos</span>
               <span className="text-right">
                 {order?.itemsInOrder === 1

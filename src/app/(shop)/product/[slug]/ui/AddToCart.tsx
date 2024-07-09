@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 import { QuantitySelector, SizeSelector } from "@/components";
 import type { CartProduct, Product, Size } from "@/interfaces";
@@ -67,8 +67,6 @@ export const AddToCart = ({ product }: Props) => {
       <button onClick={addToCart} className="btn-primary my-5">
         Agregar al carrito
       </button>
-
-      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

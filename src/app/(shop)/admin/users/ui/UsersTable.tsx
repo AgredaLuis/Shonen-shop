@@ -2,7 +2,7 @@
 
 import { User } from "@/interfaces";
 import React from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 interface Props {
   users: User[];
@@ -62,8 +62,6 @@ export const UsersTable = ({ users }: Props) => {
           ))}
         </tbody>
       </table>
-
-      <Toaster position="top-center" />
     </>
   );
 };
