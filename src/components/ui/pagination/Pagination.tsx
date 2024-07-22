@@ -1,6 +1,5 @@
 'use client';
 
-
 import { generatePaginationNumbers } from '@/utils';
 import Link from 'next/link';
 import clsx from 'clsx';

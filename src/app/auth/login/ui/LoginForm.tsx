@@ -22,8 +22,8 @@ export const LoginForm = () => {
       // redireccionar
       // router.replace('/');
 
-      toast.success('logeado con exito');
       window.location.replace('/');
+      toast.success('logeado con exito');
     }
 
   },[state]);

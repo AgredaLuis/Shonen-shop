@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import { getPaginatedProductsWithImages } from "@/actions";
 import { Pagination, ProductGrid, Title } from "@/components";
+import { Footer } from "@/components/ui/footer/Footer";
 
 
 interface Props {
@@ -38,6 +39,8 @@ export default async function Home({ searchParams }: Props) {
       <ProductGrid products={productsWithImages} />
 
       <Pagination totalPages={totalPages} />
+      
+      <Footer />
     </>
   );
 }
