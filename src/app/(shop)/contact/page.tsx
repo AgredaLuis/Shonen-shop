@@ -2,7 +2,6 @@ import ContactForm from "@/components/contactForm/ContactForm";
 import { Title } from "@/components/ui/title/Title";
 
 export default function ContactPage() {
-
   return (
     <>
       <Title
@@ -18,8 +17,8 @@ export default function ContactPage() {
               <p className="max-w-xl text-lg">
                 Mejoramos tu presencia y exposicion de tu negocio, realizamos
                 uniformes y accesorios corporativos de alta calidad, tenemos
-                Franelas, gorras. Realizamos envio Nacionales y Internacionales con
-                previo acuerdo.
+                Franelas, gorras. Adicionalmente realizamos envio Nacionales y
+                Internacionales con previo acuerdo.
               </p>
 
               <div className="mt-8">
