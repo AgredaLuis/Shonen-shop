@@ -39,7 +39,7 @@ export const createUpdateProduct = async( formData: FormData ) => {
   const productParsed = productSchema.safeParse( data );
 
   if ( !productParsed.success) {
-    //console.log( productParsed.error );
+    console.log( productParsed.error );
     // Si la validación falla, devuelve un objeto con ok: false.
     return { ok: false }
   }
@@ -154,7 +154,7 @@ const uploadImages = async( images: File[] ) => {
         .then( r => r.secure_url );
         
       } catch (error) {
-       // console.log(error);
+        console.log(error);
         return null;
       }
     })
@@ -166,8 +166,8 @@ const uploadImages = async( images: File[] ) => {
 
   } catch (error) {
 
-    //console.log(error);
-    //console.log('No se pudo cargar las imagenes en uploadImages' )
+    console.log(error);
+    console.log('No se pudo cargar las imagenes en uploadImages' )
     return null;
     
   }

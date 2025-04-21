@@ -8,6 +8,7 @@ import { createUpdateProduct, deleteProductImage } from "@/actions";
 import { useRouter } from "next/navigation";
 import { ProductImage } from "@/components";
 import {toast} from "react-hot-toast";
+import { NEXT_CACHE_TAG_MAX_LENGTH } from "next/dist/lib/constants";
 
 interface Props {
   product: Partial<Product> & {
@@ -63,7 +64,7 @@ export const ProductForm = ({ product, categories }: Props) => {
     const formData = new FormData();
 
     /* como habran objetos quie se tienen qeu separar como las imagesnes */
-    const { images ,...productToSave } = data;
+    const { images , ...productToSave } = data;
 
     if(product.id){
       formData.append("id", product.id);
@@ -87,7 +88,8 @@ export const ProductForm = ({ product, categories }: Props) => {
 
     if(!ok){
       /* alerta de que no se puedo guardar */
-      return 
+      return {
+      }
 
     }
 
