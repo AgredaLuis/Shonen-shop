@@ -33,6 +33,12 @@ export async function generateMetadata(
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || []
 
+  const localSrc = product?.images[0]
+    ? product?.images[0].startsWith("http") // https://urlcompletodelaimagen.jpg
+      ? product?.images[0]
+      : `/products/${product?.images[0]}`
+    : "/imgs/placeholder.jpg";
+
   return {
     title: product?.title ?? "Producto no encontrado",
     description: product?.description ?? "",
@@ -40,7 +46,7 @@ export async function generateMetadata(
       title: product?.title ?? "Producto no encontrado",
       description: product?.description ?? "",
       // images: [], // https://misitioweb.com/products/image.png
-      images: [`/products/${product?.images[0]}`],
+      images: [`${localSrc}`],
     },
   };
 }
